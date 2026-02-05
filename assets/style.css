@@ -305,27 +305,25 @@ body {
 /* 
 /*  sub dropdown manu*/
 
-/* .sub-dropdown {
+
+.sub-dropdown-manu {
     position: relative;
 }
 
-.sub-dropdownc ul .sub-dropdown-manu {
-    position: relative;
-    width: 100%;
-    max-height: 0;
-    overflow: hidden;
+
+.sub-dropdown-manu-colums {
+    height: 0;
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
     background-color: var(--body-color);
 }
 
-.mobile-menu-wraper.acti .mobile-menu-inner {
-    max-height: 500px;
+.sub-dropdown-manu.active .sub-dropdown-manu-colums {
+    height: 100%;
     opacity: 1;
     visibility: visible;
-} */
-
+}
 
 
 .mobile-menu-inner .mobile-menu-container {

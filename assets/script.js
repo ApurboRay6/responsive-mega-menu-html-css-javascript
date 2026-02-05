@@ -16,10 +16,38 @@ closeBtn.addEventListener('click', function () {
 });
 
 
-const parentMenu = document.querySelector('.parent-menu');
-const childMenu = document.querySelector('.child-menu');
-
-parentMenu.addEventListener('click', function () {
-    childMenu.classList.toggle('active');
+window.addEventListener("load", () => {
+    const parentMenu = document.querySelectorAll('.parent-menu');
+    const childMenu = document.querySelectorAll('.child-menu');
+    parentMenu.forEach((parent, index) => {
+        parent.addEventListener('click', () => {
+            const currentChild = childMenu[index];
+            childMenu.forEach((child, i) => {
+                if (i !== index) {
+                    child.classList.remove('active');
+                }
+            });
+            currentChild.classList.toggle('active');
+        });
+    });
 });
 
+window.addEventListener("load", () => {
+    const parentMenus = document.querySelectorAll('.sub-dropdown-manu');
+
+    parentMenus.forEach((parent) => {
+        parent.addEventListener('click', (e) => {
+            e.stopPropagation();
+
+            // close others
+            parentMenus.forEach(item => {
+                if (item !== parent) {
+                    item.classList.remove('active');
+                }
+            });
+
+            // toggle current
+            parent.classList.toggle('active');
+        });
+    });
+});
